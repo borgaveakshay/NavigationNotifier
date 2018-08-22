@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LocationNotification</string>
+    <string name="label_current_location">Current Location</string>
+    <string name="label_destination_location">Destination Location</string>
+</resources>
