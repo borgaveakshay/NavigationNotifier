@@ -36,12 +36,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1.2"
                     android:text="@string/label_current_location" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="right"
+                    android:layout_gravity="right"
+                    android:layout_weight="0.8"
                     android:text="@={locationModel.currentLocation}" />
 
             </LinearLayout>
@@ -56,12 +58,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="@string/label_destination_location" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="right"
+                    android:layout_gravity="right"
+                    android:layout_weight="1"
                     android:text="@={locationModel.destinationLocation}" />
 
             </LinearLayout>
