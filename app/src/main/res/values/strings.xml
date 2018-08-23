@@ -2,4 +2,6 @@
     <string name="app_name">LocationNotification</string>
     <string name="label_current_location">Current Location</string>
     <string name="label_destination_location">Destination Location</string>
+    <string name="notification_channel">Location Service</string>
+    <string name="destination_notification_channel">Destination Reached Notification</string>
 </resources>

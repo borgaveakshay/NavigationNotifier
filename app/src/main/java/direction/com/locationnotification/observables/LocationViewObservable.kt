@@ -1,25 +1,24 @@
 package direction.com.locationnotification.observables
 
+import android.arch.lifecycle.Lifecycle
 import android.arch.lifecycle.LifecycleObserver
+import android.arch.lifecycle.OnLifecycleEvent
 import android.location.LocationManager
 import android.view.View
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException
+import com.google.android.gms.common.GooglePlayServicesRepairableException
+import com.google.android.gms.location.places.ui.PlaceAutocomplete
 import direction.com.locationnotification.Util.LocationRequestConstants
 import direction.com.locationnotification.Util.LocationUpdateListener
 import direction.com.locationnotification.viewmodels.LocationViewModel
 import direction.com.locationnotification.views.MainActivity
 import javax.inject.Inject
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException
-import com.google.android.gms.common.GooglePlayServicesRepairableException
-import android.support.v4.app.ActivityCompat.startActivityForResult
-import com.google.android.gms.location.places.ui.PlaceAutocomplete
-import android.content.Intent
 
 
 class LocationViewObservable @Inject constructor(val locationManager: LocationManager,
                                                  val locationListener: LocationUpdateListener,
                                                  var locationViewModel: LocationViewModel,
                                                  val activity: MainActivity) : LifecycleObserver {
-
 
     fun chooseDestination(view: View) {
 
@@ -31,6 +30,21 @@ class LocationViewObservable @Inject constructor(val locationManager: LocationMa
         } catch (e: GooglePlayServicesNotAvailableException) {
             // TODO: Handle the error.
         }
+
+    }
+
+    fun buttonClicked(view: View) {
+
+        if (locationViewModel.buttonText.equals("Start")) {
+            activity.startLocationService()
+            locationViewModel.buttonText = "Stop"
+        } else {
+            activity.stopLocationTracking()
+            locationViewModel.buttonText = "Start"
+            locationViewModel.destinationLocation = "Please tap to choose destination"
+            locationViewModel.destinationPlace = null
+        }
+        locationViewModel.notifyChange()
 
     }
 

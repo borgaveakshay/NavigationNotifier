@@ -10,11 +10,14 @@ import javax.inject.Inject
 
 data class LocationViewModel(var currentLocation: String,
                              var destinationLocation: String,
-                             var destinationPlace: Place?) : Observable, ViewModel() {
+                             var destinationPlace: Place?,
+                             var buttonText: String) : Observable, ViewModel() {
 
 
     @Inject constructor() : this("Getting current location..."
-            , "Please enter destination", null)
+            , "Please tap to choose destination"
+            , null
+            , "Start")
 
     val mPropertyChangeRegistryComponent: PropertyChangeRegistryComponent = DaggerPropertyChangeRegistryComponent.builder().build()
     val mPropertyChangeRegistry: PropertyChangeRegistry = mPropertyChangeRegistryComponent.getPropertyChangeRegistry()

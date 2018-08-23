@@ -24,7 +24,7 @@ class GeoCoderService @Inject constructor() : Runnable {
             if (list != null && list.size > 0) {
                 val address = list[0]
                 // sending back first address line and locality
-                locationViewModel.currentLocation = address.getAddressLine(0) + ", " + address.locality
+                locationViewModel.currentLocation = address.getAddressLine(0)
                 locationViewModel.notifyChange()
             }
         } catch (e: IOException) {

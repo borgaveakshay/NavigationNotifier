@@ -92,4 +92,17 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun startLocationService() {
+        val startIntent = Intent(this, mLocationComponent.getLocationService()::class.java)
+        startIntent.action = LocationRequestConstants.START_LOCATION_FOREGROUND_SERVICE
+        startService(startIntent)
+    }
+
+    fun stopLocationTracking() {
+
+        val startIntent = Intent(this, mLocationComponent.getLocationService()::class.java)
+        startIntent.action = LocationRequestConstants.STOP_LOCATION_FOREGROUND_SERVICE
+        startService(startIntent)
+    }
+
 }

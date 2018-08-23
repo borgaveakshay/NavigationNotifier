@@ -5,6 +5,7 @@ import dagger.Component
 import direction.com.locationnotification.dependencies.modules.LocationModule
 import direction.com.locationnotification.dependencies.scopes.LocationScope
 import direction.com.locationnotification.observables.LocationViewObservable
+import direction.com.locationnotification.services.LocationService
 import direction.com.locationnotification.viewmodels.LocationViewModel
 
 @LocationScope
@@ -13,6 +14,6 @@ interface LocationComponent {
 
     fun getLocationViewModel(): LocationViewModel
     fun getLocationViewObservable(): LocationViewObservable
-    fun getLocationManager(): LocationManager
+    fun getLocationService(): LocationService
 
 }

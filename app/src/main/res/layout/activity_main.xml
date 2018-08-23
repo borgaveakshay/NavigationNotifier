@@ -5,6 +5,7 @@
     <data>
 
         <import type="android.view.View" />
+
         <variable
             name="locationModel"
             type="direction.com.locationnotification.viewmodels.LocationViewModel" />
@@ -71,6 +72,12 @@
                     android:text="@={locationModel.destinationLocation}" />
 
             </LinearLayout>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{(v) -> locationViewObserver.buttonClicked(v)}"
+                android:text="@={locationModel.buttonText}" />
 
 
         </LinearLayout>
