@@ -6,11 +6,11 @@ import android.location.Location
 import direction.com.locationnotification.viewmodels.LocationViewModel
 import java.io.IOException
 import java.util.*
+import javax.inject.Inject
 
 
-object GeoCoderService : Runnable {
+class GeoCoderService @Inject constructor() : Runnable {
 
-    var result: String? = null
     lateinit var context: Context
     lateinit var location: Location
     lateinit var locationViewModel: LocationViewModel
@@ -25,6 +25,7 @@ object GeoCoderService : Runnable {
                 val address = list[0]
                 // sending back first address line and locality
                 locationViewModel.currentLocation = address.getAddressLine(0) + ", " + address.locality
+                locationViewModel.notifyChange()
             }
         } catch (e: IOException) {
 

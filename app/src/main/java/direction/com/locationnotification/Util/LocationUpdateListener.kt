@@ -8,24 +8,22 @@ import direction.com.locationnotification.views.MainActivity
 import javax.inject.Inject
 
 class LocationUpdateListener @Inject constructor(val activity: MainActivity,
-                                                 val locationViewModel: LocationViewModel) : LocationListener {
+                                                 val locationViewModel: LocationViewModel,
+                                                 val geoCoderService: GeoCoderService) : LocationListener {
 
     override fun onLocationChanged(currentLocation: Location?) {
 
-        currentLocation?.let { GeoCoderService.fetchAddress(currentLocation, activity, locationViewModel) }
-
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        currentLocation?.let { geoCoderService.fetchAddress(currentLocation, activity, locationViewModel) }
     }
 
     override fun onStatusChanged(p0: String?, p1: Int, p2: Bundle?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     override fun onProviderEnabled(p0: String?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     override fun onProviderDisabled(p0: String?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
