@@ -1,5 +1,6 @@
 package direction.com.locationnotification.dependencies.components
 
+import android.location.LocationManager
 import dagger.Component
 import direction.com.locationnotification.dependencies.modules.LocationModule
 import direction.com.locationnotification.dependencies.scopes.LocationScope
@@ -12,5 +13,6 @@ interface LocationComponent {
 
     fun getLocationViewModel(): LocationViewModel
     fun getLocationViewObservable(): LocationViewObservable
+    fun getLocationManager(): LocationManager
 
 }

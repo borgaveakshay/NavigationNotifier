@@ -1,10 +1,11 @@
 package direction.com.locationnotification.dependencies.modules
 
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Context
+import android.location.LocationManager
 import dagger.Module
 import dagger.Provides
 import direction.com.locationnotification.dependencies.scopes.LocationScope
-import direction.com.locationnotification.observables.LocationViewObservable
 import direction.com.locationnotification.viewmodels.LocationViewModel
 import direction.com.locationnotification.views.MainActivity
 
@@ -21,7 +22,7 @@ class LocationModule(val activity: MainActivity) {
 
     @Provides
     @LocationScope
-    fun getLocationViewObservable(activity: MainActivity, locationViewModel: LocationViewModel) = LocationViewObservable(locationViewModel, activity)
+    fun getLocationManager(activity: MainActivity) = activity.getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
 
 }
